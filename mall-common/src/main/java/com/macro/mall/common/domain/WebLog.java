@@ -21,9 +21,9 @@ public class WebLog {
     private String username;
 
     /**
-     * 操作时间
+     * 接口访问时间
      */
-    private Long startTime;
+    private String accessTime;
 
     /**
      * 消耗时间
