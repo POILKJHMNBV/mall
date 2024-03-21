@@ -29,7 +29,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -190,8 +189,8 @@ public class UmsAdminServiceImpl implements UmsAdminService {
 
     @Override
     public int delete(Long id) {
-        getCacheService().delAdmin(id);
         int count = adminMapper.deleteByPrimaryKey(id);
+        getCacheService().delAdmin(id);
         getCacheService().delResourceList(id);
         return count;
     }
